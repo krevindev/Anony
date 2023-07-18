@@ -17,8 +17,10 @@
   color: inherit;
   border: none;
   outline: none;
-}
 
+  scroll-behavior: smooth;
+
+}
 #App {
   height: 100vh;
   max-width: 100vw;

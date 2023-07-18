@@ -13,6 +13,15 @@ import NotFound from '../not_found/NotFound';
 import moment from 'moment/moment';
 
 
+const copyToClipboard = (chCode) => {
+    const tempInput = document.createElement('input');
+    tempInput.value = "https://anony-post.netlify.app/channel/"+chCode;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+};
+
 export default function Channel() {
 
     const { chCode } = useParams();
@@ -140,7 +149,7 @@ export default function Channel() {
                     <h3>{channelData.chName}</h3>
                     <h5>Code:  {channelData.chCode}</h5>
                 </div>
-                <div className='channel-header-part'>
+                <div className='channel-header-part' onClick={() => copyToClipboard(chCode)}>
                     <h5>Copy Link <img src={copyIcon} /></h5>
                 </div>
             </div>

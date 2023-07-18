@@ -21,6 +21,10 @@
     background: linear-gradient(to right, var(--color1), var(--color4));
 }
 
+#Header * {
+    user-select: none;
+}
+
 #Header #header-user-icon {
     width: 10%;
     min-width: 30px;
@@ -28,7 +32,6 @@
 }
 
 #Header h1 {
-
     border-radius: 20px;
     padding: 5px 15px;
     border: 2px solid var(--color2);

@@ -63,8 +63,6 @@ export default function ViewRecents() {
 
         setRecentsData([...recentsData, ...getRecentChannels()]);
         updateRecentData();
-
-        console.log(recentsData);
     }, [])
 
 
@@ -77,7 +75,6 @@ export default function ViewRecents() {
     const clearRecentChannels = () => {
         setRecentsData([]);
         localStorage.removeItem('recentChannels');
-        console.log(getRecentChannels())
     };
 
 
