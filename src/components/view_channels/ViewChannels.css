@@ -9,6 +9,13 @@
     padding-top: 3vh;
 }
 
+#ViewChannels .view-channel-headtext {
+    display: flex;
+    padding-left: 10px;
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
 #view-channels-container {
     display: flex;
     flex-direction: column;
@@ -16,6 +23,8 @@
     align-items: center;
 
     background: var(--color5);
+    /* background: #D9D9D9; */
+
     width: 95%;
     max-width: 500px;
     height: 70%;
@@ -28,7 +37,8 @@
     overflow-x: hidden;
 }
 
-#view-channels-container.loading {
+#view-channels-container:not(.loaded) {
+    display: flex;
     align-content: center;
     justify-content: center;
 }
@@ -67,9 +77,9 @@
     display: flex;
     align-self: center;
     justify-self: center;
-    color: white;
     font-size: 30px;
     font-weight: 200;
+    color: white;
 }
 
 #ViewChannels .view-channel-item-enter-btn {
@@ -125,7 +135,7 @@
     min-width: 60px;
     margin: 15px;
 
-    background: linear-gradient(to top, var(--color1), #23bd97);
+    background: var(--color1);
     color: white;
     font-size: 20px;
 

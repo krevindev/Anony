@@ -34,8 +34,9 @@ export default function Home() {
                         to="/view_recents"
                         imgSrc={recentChannelIcon}
                     />
+
                 </div>
-                
+
             </div>
 
         </div>

@@ -22,13 +22,15 @@
     font-weight: lighter;
     font-family: 'Courier New', Courier, monospace;
     position: relative;
-
 }
 
 .flash-icon {
     position: absolute;
 
-    animation: flashIconAnim 1s;
+    width: 200px;
+    max-width: 60%;
+
+    animation: flashIconAnim 1.3s;
     transform-origin: 0% 100%; 
 }
 

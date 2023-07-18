@@ -43,16 +43,17 @@ export default function ViewChannels() {
     return (
         <div id="ViewChannels" className='anony-page'>
 
-            <h1>Active Channels:</h1>
-            <div id='view-channels-container' className={isLoading && 'loading'}>
+            <h1 className='view-channel-headtext'>Active Channels:</h1>
+            <div id='view-channels-container' className={!isLoading && allChannels.length > 0 && 'loaded'}>
                 {
-                    isLoading ? <h1>Loading...</h1> : !isLoading && allChannels.length <= 0 ? <h1>No Active Channels</h1> : allChannels.map(channel => (
-                        <ViewChannelItem
-                            key={channel.chCode}
-                            chName={channel.chName}
-                            chCode={channel.chCode}
-                        />
-                    ))
+                    isLoading ? <h1>Loading...</h1>
+                        : !isLoading && allChannels.length <= 0 ? <h1>No Active Channels</h1> : allChannels.map(channel => (
+                            <ViewChannelItem
+                                key={channel.chCode}
+                                chName={channel.chName}
+                                chCode={channel.chCode}
+                            />
+                        ))
                 }
             </div>
         </div>

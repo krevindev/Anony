@@ -2,6 +2,8 @@
     display: flex;
     justify-self: baseline;
     position: relative;
+
+    padding: 0 10px;
 }
 
 #home-content-container {
@@ -54,6 +56,10 @@
     display: flex;
     justify-self: center;
     align-self: center;
+}
+
+.anony-button img path{
+    fill: #000;
 }
 
 .anony-button h1 {

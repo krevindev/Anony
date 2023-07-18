@@ -85,7 +85,7 @@ export default function ViewRecents() {
         <div id="ViewRecents" className="anony-page">
 
             <div id="home-recents-container">
-                <h5>Recents Channels:</h5>
+                <h5>Recent Channels:</h5>
                 <div id="home-recents-items-container" className={recentsData.length <= 0 && 'empty-recents'}>
                     {
                         recentsData.length > 0 ? recentsData.map((recent, ind) => (

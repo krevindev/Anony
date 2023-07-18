@@ -10,6 +10,9 @@ import loadingSend from '../../res/gif/loading-send.gif';
 import LoadingPage from '../../components/loading_page/LoadingPage';
 import NotFound from '../not_found/NotFound';
 
+import moment from 'moment/moment';
+
+
 export default function Channel() {
 
     const { chCode } = useParams();
@@ -27,7 +30,6 @@ export default function Channel() {
         newMessageInputRef.current.value = null;
 
         if (message === '') {
-            console.log('Message is empty. Skipping message addition.');
             return;
         }
 
@@ -46,13 +48,14 @@ export default function Channel() {
                     channelData.chMessages = [];
                 }
 
+
+                const currentTime = moment().format('MMM D, YYYY h:mm A');
+
                 // Append the new message to the "chMessages" array
-                channelData.chMessages.push(message);
+                channelData.chMessages.push({ message: message, timeSent: currentTime });
 
                 // Update the document with the new "chMessages" array
                 await updateDoc(channelDoc.ref, { chMessages: channelData.chMessages }).then(res => newMessageInputRef.current.value = '');
-
-                console.log('Message added to the "chMessages" array.');
                 setIsSending(false);
             } else {
                 console.error('Channel with the given chCode does not exist.');
@@ -143,7 +146,7 @@ export default function Channel() {
             </div>
             <div id='channel-messages-container' >
                 {channelData.chMessages.length > 0
-                    ? channelData.chMessages.slice().reverse().map((msg, index) => <ChannelMessage key={index} message={msg} />)
+                    ? channelData.chMessages.slice().reverse().map((msg, index) => <ChannelMessage key={index} message={msg.message} time={msg.timeSent} />)
                     : <h1>Start Posting</h1>
                 }
 
@@ -172,10 +175,15 @@ export default function Channel() {
 }
 
 
-function ChannelMessage({ message }) {
+function ChannelMessage({ message, time }) {
     return (
         <div className='channel-message'>
-            {message}
+            <span className='channel-message-text'>
+                {message}
+            </span>
+            <span className='channel-message-time-sent'>
+                {time}
+            </span>
         </div>
     )
 }

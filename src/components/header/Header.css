@@ -15,8 +15,10 @@
     padding: 25px;
     padding-left: 20px;
     z-index: 100;
-    border: 2px solid #118166;
-    background: linear-gradient(to right , var(--color1), #23bd97);
+    /* border: 2px solid #118166; */
+    border: 2px solid var(--color4);
+    /* background: linear-gradient(to right , var(--color1), #23bd97); */
+    background: linear-gradient(to right, var(--color1), var(--color4));
 }
 
 #Header #header-user-icon {
@@ -31,9 +33,11 @@
     padding: 5px 15px;
     border: 2px solid var(--color2);
 }
+
 #header-back-btn {
     transition: all .5s;
 }
+
 #header-back-btn:hover {
     transform: translateX(5px);
 }
