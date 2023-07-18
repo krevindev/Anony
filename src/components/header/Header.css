@@ -1,0 +1,39 @@
+#Header {
+    background: var(--color1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 70px;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color2);
+
+    box-sizing: border-box;
+    padding: 25px;
+    padding-left: 20px;
+    z-index: 100;
+    border: 2px solid #118166;
+    background: linear-gradient(to right , var(--color1), #23bd97);
+}
+
+#Header #header-user-icon {
+    width: 10%;
+    min-width: 30px;
+    max-width: 10px;
+}
+
+#Header h1 {
+
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: 2px solid var(--color2);
+}
+#header-back-btn {
+    transition: all .5s;
+}
+#header-back-btn:hover {
+    transform: translateX(5px);
+}

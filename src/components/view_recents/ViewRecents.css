@@ -1,0 +1,130 @@
+#ViewRecents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    padding-top: 7vh;
+}
+
+#home-recents-container {
+    padding-top: 10vh;
+    width: fit-content;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    margin-top: 5vh;
+}
+
+#home-recents-container * {
+    margin: 10px;
+}
+
+#home-recents-container h5 {
+    font-size: 20px;
+    align-self: baseline;
+}
+
+#home-recents-container .anony-recent-item {
+    color: var(--color1);
+    width: 95%;
+    max-width: 95%;
+    min-height: fit-content;
+
+    border-radius: 5px;
+    border: 1px solid var(--color1);
+
+    overflow-wrap: break-word;
+
+    padding: 5px 20px;
+    margin: 5px;
+    font-weight: 500;
+    font-size: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--color2);
+
+    position: relative;
+}
+
+#home-recents-container .anony-recent-item h5 {
+    max-width: 70%;
+}
+
+#home-recents-container .anony-recent-item button {
+    position: absolute;
+    right: 10px;
+
+    height: 80%;
+    max-height: 35px;
+    max-width: 70px;
+    width: 20%;
+    color: white;
+    border-radius: 10px;
+    background: var(--color1);
+}
+
+#home-recents-items-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #D9D9D9;
+    height: 60vh;
+    width: 95%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home-recents-items-container.empty-recents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#home-recents-items-container.empty-recents  h3{
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--color5);
+}
+#home-recents-items-container h3 {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+#home-recents-clear-btn-container {
+    width: 100px;
+    height: 50px;
+    min-height: 50px;
+
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+
+#home-recents-clear-btn-container:hover {
+    filter: brightness(150%);
+
+    transform: translateY(-2px);
+}
+
+#home-recents-clear-btn-container h6 {
+    position: absolute;
+    width: 100%;
+    min-width: fit-content;
+    bottom: -15px;
+    text-align: center;
+    color: #F54D4D;
+}
