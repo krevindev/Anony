@@ -10,6 +10,8 @@ export default function Header() {
 
     const [headerTitle, setHeaderTitle] = useState('ANONY');
     const [isHeaderText, setIsHeaderText] = useState(true);
+    const [isShowUnav, setIsShowUnav] = useState(false);
+
     const locationPath = useLocation().pathname;
     const channelCode = locationPath.split('/')[locationPath.split('/').length - 1];
 
@@ -22,7 +24,19 @@ export default function Header() {
             setIsHeaderText(true);
         }
 
+        if (isShowUnav) {
+            setTimeout(() => {
+                setIsShowUnav(false);
+            }, 1000);
+        }
+
     })
+
+    const handleProfileClick = () => {
+        if (!isShowUnav) {
+            setIsShowUnav(true)
+        }
+    }
 
 
     return (
@@ -34,7 +48,10 @@ export default function Header() {
                     isHeaderText ? <h1 id="header-title">{headerTitle}</h1> : <img id='header-back-btn' src={backBtn} />
                 }
             </Link>
-            <img id='header-user-icon' src={userIcon} />
+            <img id='header-user-icon' src={userIcon} onClick={handleProfileClick} />
+            {
+                isShowUnav && <div id='header-unavailable-feature' >Feature Unavailable</div>
+            }
         </header>
     )
 }

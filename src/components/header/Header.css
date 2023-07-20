@@ -44,3 +44,38 @@
 #header-back-btn:hover {
     transform: translateX(5px);
 }
+
+#header-unavailable-feature {
+    display: flex;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    background: white;
+    border: 1px solid black;
+    color: black;
+    padding: 7px;
+
+    animation: unavailableFeatAnim 1s both;
+
+}
+
+@keyframes unavailableFeatAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}

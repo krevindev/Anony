@@ -113,7 +113,7 @@ function Recent({ chName, chCode, ind }) {
     }
 
     return (
-        <div className="anony-recent-item" key={ind} onClick={handleClick}>
+        <div className="anony-recent-item" key={ind} >
             <h5>{chName}</h5>
             <button onClick={handleClick}>Re-Enter</button>
         </div>

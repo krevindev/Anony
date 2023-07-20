@@ -91,6 +91,9 @@ function ConfirmEnter({ chName, chCode, setIsConfirmVisible }) {
 
     useEffect(() => {
         setIsInputValid(confirmInput.current.value);
+
+        confirmInput.current.focus();
+
     });
 
 
