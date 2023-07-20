@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import './Home.css';
-import { useEffect, useState } from "react";
 
 import createChannelIcon from '../../res/images/svg/create-channel.svg';
 import joinChannelIcon from '../../res/images/svg/join-channel.svg';
@@ -37,7 +36,7 @@ export default function Home() {
 
                 </div>
 
-                <a id="what-is-anony" href="#anony-about">What is Anony?</a>
+                <a id="what-is-anony" href="#anony-about">Anony?</a>
             </div>
 
             <div id="anony-about">
@@ -56,7 +55,7 @@ export default function Home() {
                 <h3>Key Features of Anony</h3>
                 <ul>
                     <li>Anonymous Posting: Share your perspectives without revealing personal information.</li>
-                    <br/>
+                    <br />
                     <li>Channel Creation: Curate your own channels and build communities around your interests.</li>
                     {/* <li>Secure and Private: We prioritize your anonymity and data security.</li>
                     <li>Simple and Intuitive: Our user-friendly interface makes anonymous posting a breeze.</li> */}

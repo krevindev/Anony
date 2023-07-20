@@ -142,6 +142,14 @@
     border-radius: 10px;
 }
 
+#confirm-enter-content button:nth-child(1):not(.join-btn-valid) {
+    opacity: .5;
+    cursor: not-allowed;
+}
+#confirm-enter-content button:nth-child(1) .join-btn-valid {
+    color: blue;
+} 
+
 #confirm-enter-content button:nth-child(2) {
     background: white;
     color: white;
@@ -156,6 +164,8 @@
 #confirm-enter-content #confirm-buttons-container {
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
 }
 
 #confirm-enter-content input {

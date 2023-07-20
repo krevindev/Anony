@@ -108,13 +108,14 @@ function Recent({ chName, chCode, ind }) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        console.log(`Joining Channel: ${chName}\nCode:${chCode}`)
+        // console.log(`Joining Channel: ${chName}\nCode:${chCode}`)
+        navigate('/channel/' + chCode)
     }
 
     return (
         <div className="anony-recent-item" key={ind} onClick={handleClick}>
             <h5>{chName}</h5>
-            <button onClick={() => navigate('/channel/' + chCode)}>Re-Enter</button>
+            <button onClick={handleClick}>Re-Enter</button>
         </div>
     )
 }

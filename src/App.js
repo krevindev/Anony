@@ -13,12 +13,31 @@ import ViewRecents from './components/view_recents/ViewRecents';
 function App() {
 
   const [isFlashScreen, setIsFlashScreen] = useState(true);
+  const [isOnline, setIsOnline] = useState(window.navigator.onLine);
 
   useEffect(() => {
     setTimeout(() => {
       setIsFlashScreen(false);
     }, 2000);
-  })
+
+
+    setIsOnline(window.navigator.onLine);
+
+    const handleConnectionChange = () => {
+      setIsOnline(navigator.onLine);
+    }
+
+    // Adde event listeners for 
+    window.addEventListener('online', handleConnectionChange);
+    window.addEventListener('offline', handleConnectionChange);
+
+    // Clean up event listeners when the component is unmounted
+    return () => {
+      window.removeEventListener('online', handleConnectionChange);
+      window.removeEventListener('offline', handleConnectionChange);
+    };
+
+  }, [])
 
   return (
     <Router>
@@ -43,6 +62,10 @@ function App() {
           {/* <Route exact path="/channel" element={<Channel />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+      </div>
+
+      <div id='online-status-notif' className={isOnline ? 'is-online' : 'is-offline'}>
+        <span>You are currently offline</span>
       </div>
     </Router>
   );

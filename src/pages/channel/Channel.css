@@ -50,6 +50,13 @@
     justify-content: flex-end;
 }
 
+#channel-header-bar .channel-header-part:nth-child(2) h5 {
+    cursor: pointer;
+}
+#channel-header-bar .channel-header-part:nth-child(2) h5:active {
+    transform: translateY(5px);
+}
+
 #channel-header-bar * {
     margin: 1px 0;
 }
@@ -105,7 +112,8 @@
     flex-direction: column;
 
 }
-#channel-messages-container .channel-message .channel-message-text{
+
+#channel-messages-container .channel-message .channel-message-text {
     font-weight: 400;
     font-size: 20px;
     margin-bottom: 10px;
@@ -128,6 +136,7 @@
     /* box-shadow: 0px -25px 10px 10px rgba(79, 79, 79, 0.4); */
 
     background: var(--color2);
+    border-top: 1px solid var(--color5);
 }
 
 .ch-input-part {

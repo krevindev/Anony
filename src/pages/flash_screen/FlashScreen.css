@@ -30,18 +30,21 @@
     width: 200px;
     max-width: 60%;
 
-    animation: flashIconAnim 1.3s;
-    transform-origin: 0% 100%; 
+    animation: flashIconAnim .5s;
+    transform-origin: 0% 100%;
 }
 
 @keyframes flashIconAnim {
     from {
         opacity: 0;
-        transform: rotate(40deg);
+        transform: scale(.5);
+        /* transform: rotate(40deg); */
     }
+
     to {
         opacity: 1;
-        transform: rotate(0);
+        transform: scale(1);
+        /* transform: rotate(0); */
     }
 }
 

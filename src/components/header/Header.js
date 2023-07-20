@@ -2,7 +2,7 @@ import './Header.css';
 import userIcon from '../../res/images/svg/user-icon.svg';
 import backBtn from '../../res/images/svg/back-btn.svg';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
@@ -12,6 +12,7 @@ export default function Header() {
     const [isHeaderText, setIsHeaderText] = useState(true);
     const locationPath = useLocation().pathname;
     const channelCode = locationPath.split('/')[locationPath.split('/').length - 1];
+
 
     useEffect(() => {
 
@@ -23,8 +24,9 @@ export default function Header() {
 
     })
 
+
     return (
-        <div id="Header">
+        <header id="Header">
             <Link
                 to="/"
             >
@@ -33,6 +35,6 @@ export default function Header() {
                 }
             </Link>
             <img id='header-user-icon' src={userIcon} />
-        </div>
+        </header>
     )
 }

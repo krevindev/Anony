@@ -15,7 +15,7 @@ import moment from 'moment/moment';
 
 const copyToClipboard = (chCode) => {
     const tempInput = document.createElement('input');
-    tempInput.value = "https://anony-post.netlify.app/channel/"+chCode;
+    tempInput.value = "https://anony-post.netlify.app/channel/" + chCode;
     document.body.appendChild(tempInput);
     tempInput.select();
     document.execCommand('copy');
@@ -144,29 +144,29 @@ export default function Channel() {
 
     return (
         <div id='Channel' className='anony-page'>
-            <div id='channel-header-bar'>
+            <header id='channel-header-bar'>
                 <div className='channel-header-part'>
                     <h3>{channelData.chName}</h3>
                     <h5>Code:  {channelData.chCode}</h5>
                 </div>
-                <div className='channel-header-part' onClick={() => copyToClipboard(chCode)}>
-                    <h5>Copy Link <img src={copyIcon} /></h5>
+                <div className='channel-header-part' >
+                    <h5 onClick={() => copyToClipboard(chCode)}>Copy Link <img src={copyIcon} /></h5>
                 </div>
-            </div>
-            <div id='channel-messages-container' >
+            </header>
+            <section id='channel-messages-container' >
                 {channelData.chMessages.length > 0
                     ? channelData.chMessages.slice().reverse().map((msg, index) => <ChannelMessage key={index} message={msg.message} time={msg.timeSent} />)
                     : <h1>Start Posting</h1>
                 }
 
-            </div>
-            <div id='channel-user-input-container'>
+            </section>
+            <form id='channel-user-input-container'>
                 <div className='ch-input-part'>
                     <textarea
                         ref={newMessageInputRef}
                         onKeyDown={(e) => {
                             if (e.key == 'Enter') {
-                                addMessageToChannel(chCode, newMessageInputRef.current.value)
+                                addMessageToChannel(chCode, newMessageInputRef.current.value);
                             }
                         }
                         }
@@ -178,7 +178,7 @@ export default function Channel() {
                         src={isSending ? loadingSend : sendBtn}
                         onClick={() => addMessageToChannel(chCode, newMessageInputRef.current.value)} />
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

@@ -24,7 +24,6 @@ async function getAllChannels() {
 
 export default function ViewChannels() {
 
-
     const [allChannels, setAllChannels] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -82,18 +81,45 @@ function ViewChannelItem({ chName, chCode }) {
 
 function ConfirmEnter({ chName, chCode, setIsConfirmVisible }) {
 
-    const navigate = useNavigate();
-
     const confirmInput = useRef(null);
+
+    const navigate = useNavigate();
+    const [error, setError] = useState(null);
+
+    const [isInputValid, setIsInputValid] = useState(null);
+
+
+    useEffect(() => {
+        setIsInputValid(confirmInput.current.value);
+    });
+
 
     const handleJoin = () => {
         const inputValue = confirmInput.current.value;
 
-        if (inputValue == chCode) {
-            navigate('/channel/' + chCode);
+        if (isInputValid) {
+            if (inputValue != '') {
+                if (inputValue == chCode) {
+                    navigate('/channel/' + chCode);
+                } else {
+                    setError('wrong-code');
+                }
+            } else {
+                setError('wrong-input');
+            }
         }
     }
 
+    const handleType = () => {
+        const inputValue = confirmInput.current.value;
+
+        if (inputValue != '') {
+            setIsInputValid(true);
+        } else {
+            setIsInputValid(false);
+            setError(null);
+        }
+    }
 
     return (
         <div id='confirm-enter' onClick={e => {
@@ -102,12 +128,26 @@ function ConfirmEnter({ chName, chCode, setIsConfirmVisible }) {
             }
         }}>
             <div id='confirm-enter-content'>
-                <h2>Enter Code for</h2>
+                <h2>Join </h2>
                 <h3>'{chName}'</h3>
-                <input ref={confirmInput} placeholder='Type Code...'>
+                <input
+                    onChange={handleType}
+                    onKeyDown={e => {
+                        if (e.key == 'Enter') {
+                            handleJoin();
+                        }
+                    }
+                    }
+                    ref={confirmInput}
+                    placeholder='Type Code...'
+                >
                 </input>
+                {
+                    error && <p>Wrong Code</p>
+                }
+
                 <div id='confirm-buttons-container'>
-                    <button onClick={handleJoin}>JOIN</button>
+                    <button className={isInputValid && 'join-btn-valid'} onClick={handleJoin}>JOIN</button>
                     <button onClick={() => setIsConfirmVisible(false)}>CANCEL</button>
                 </div>
             </div>
